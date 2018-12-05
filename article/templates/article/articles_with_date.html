@@ -1,0 +1,12 @@
+{% extends 'article/article_list.html' %}
+
+{# 页面标题 #}
+{% block title %}
+    {{ article_with_date }}
+{% endblock %}
+
+{% block article_list_title %}
+    日期：{{ article_with_date }}
+    <!--（一共有{{ articles|length }}篇文章）-->
+    <a href="{% url 'article_list' %}">查看全部文章</a>
+{% endblock %}

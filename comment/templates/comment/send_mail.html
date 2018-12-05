@@ -1,0 +1,4 @@
+{% autoescape off %}
+    <p>{{ comment_user }} 在<a href="{{ url|safe }}">【{{ article_title|safe }}】</a>中回复了你:</p>
+    <p>{{ comment_text|safe }}</p>
+{% endautoescape %}
