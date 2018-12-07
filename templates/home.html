@@ -61,31 +61,47 @@
     <section id="two" class="wrapper style3">
         <div class="inner">
             <div id="flexgrid">
-                <div>
+                <div class="hot-data">
                     <header>
-                        <h3>Tempus Feugiat</h3>
+                        <h3>今日热门文章</h3>
                     </header>
-                    <p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu</p>
-                    <ul class="actions">
-                        <li><a href="#" class="button alt">Learn More</a></li>
+                    {% for hot_data in today_hot_data %}
+                        <li><a href="{% url 'article_detail' hot_data.content_object.pk %}">{{ hot_data.content_object.title }}</a>
+                            （{{ hot_data.read_num }}）
+                        </li>
+                    {% empty %}
+                        <li>今天暂时没有热门文章</li>
+                    {% endfor %}
+{#                    <ul class="actions">#}
+{#                        <li><a href="#" class="button alt">Learn More</a></li>#}
+{#                    </ul>#}
+                </div>
+                <div class="hot-data">
+                    <header>
+                        <h3>昨日热门文章</h3>
+                    </header>
+                    <ul>
+                        {% for hot_article in hot_articles_for_yesterday %}
+                            <li><a href="{% url 'article_detail' hot_article.id %}">{{ hot_article.title }}</a>
+                                （{{ hot_article.read_num_sum }}）
+                            </li>
+                        {% empty %}
+                            <li>昨天暂时没有热门文章</li>
+                        {% endfor %}
                     </ul>
                 </div>
-                <div>
+                <div class="hot-data">
                     <header>
-                        <h3>Aliquam Nulla</h3>
+                        <h3>近7天热门文章</h3>
                     </header>
-                    <p>Ut convallis, sem sit amet interdum consectetuer, odio augue aliquam leo, nec dapibus tortor nibh sed </p>
-                    <ul class="actions">
-                        <li><a href="#" class="button alt">Learn More</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <header>
-                        <h3>Sed Magna</h3>
-                    </header>
-                    <p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula.</p>
-                    <ul class="actions">
-                        <li><a href="#" class="button alt">Learn More</a></li>
+                    <ul>
+                        {% for hot_article in hot_articles_for_7_days %}
+                            <li><a href="{% url 'article_detail' hot_article.id %}">{{ hot_article.title }}</a>
+                                （{{ hot_article.read_num_sum }}）
+                            </li>
+                        {% empty %}
+                            <li>昨天暂时没有热门文章</li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
@@ -140,42 +156,8 @@
             <!-- 图表容器 DOM -->
     <div id="container"></div>
     <!-- 今日热门文章 -->
-    <div class="hot-data">
-        <h3>今日热门文章</h3>
-        <ul>
-            {% for hot_data in today_hot_data %}
-                <li><a href="{% url 'article_detail' hot_data.content_object.pk %}">{{ hot_data.content_object.title }}</a>
-                    （{{ hot_data.read_num }}）
-                </li>
-            {% empty %}
-                <li>今天暂时没有热门文章</li>
-            {% endfor %}
-        </ul>
-    </div>
-    <div class="hot-data">
-        <h3>昨日热门文章</h3>
-        <ul>
-            {% for hot_article in hot_articles_for_yesterday %}
-                <li><a href="{% url 'article_detail' hot_article.id %}">{{ hot_article.title }}</a>
-                    （{{ hot_article.read_num_sum }}）
-                </li>
-            {% empty %}
-                <li>昨天暂时没有热门文章</li>
-            {% endfor %}
-        </ul>
-    </div>
-    <div class="hot-data">
-        <h3>近7天热门文章</h3>
-        <ul>
-            {% for hot_article in hot_articles_for_7_days %}
-                <li><a href="{% url 'article_detail' hot_article.id %}">{{ hot_article.title }}</a>
-                    （{{ hot_article.read_num_sum }}）
-                </li>
-            {% empty %}
-                <li>昨天暂时没有热门文章</li>
-            {% endfor %}
-        </ul>
-    </div>
+
+
 
         </div>
     </section>
