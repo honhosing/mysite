@@ -21,16 +21,21 @@
 {% block nav_home_active %}active{% endblock %}
 
 {% block content %}
-    <h1 class="home-content">欢迎访问，随便看</h1>
+
     <!-- Banner -->
 <!--
     To use a video as your background, set data-video to the name of your video without
     its extension (eg. images/banner). Your video must be available in both .mp4 and .webm
     formats to work correctly.
 -->
+
     <section id="banner" data-video="../static/images/banner">
         <div class="inner">
-            <h1>Bitcoin Magazine</h1>
+            <a href="/">
+                <div id="main-logo-lg">
+                    <h1 class="banner-header">Bitcoin Magazine</h1>
+                </div>
+            </a>
             <p>多读书<br>多看报<br>少吃零食<br>多睡觉</p>
             <a href="#one" class="button special scrolly">Get Started</a>
         </div>
@@ -44,14 +49,19 @@
                     <div class="image fit">
                         <img src="../static/images/pic01.jpg" alt="" />
                     </div>
-                    <div class="content">
-                        <header class="align-center">
-                            <h2>{{ newest_article.title }}</h2>
-                            <p>{{ newest_article_author }}</p>
-                        </header>
-                        <hr />
-                        <p>{{ newest_article.content|safe|striptags|truncatechars:400 }}</p>
-                    </div>
+                        <div class="content">
+                            <header class="align-center">
+                                <a href="{% url 'article_detail' newest_article.id %}" class="article-detail">
+                                    <h2>{{ newest_article.title }}</h2>
+                                    <p>{{ newest_article_author }}</p>
+                                </a>
+                            </header>
+                            <hr />
+                            <a href="{% url 'article_detail' newest_article.id %}" class="article-detail">
+                                <p>{{ newest_article.content|safe|striptags|truncatechars:400 }}</p>
+                            </a>
+                        </div>
+
                 </div>
             </div>
         </div>
@@ -120,11 +130,15 @@
                         </div>
                         <div class="content">
                             <header class="align-center">
-                                <h2>{{ second_article.title }}</h2>
-                                <p>{{ second_article_author }}</p>
+                                <a href="{% url 'article_detail' second_article.id %}" class="article-detail">
+                                    <h2>{{ second_article.title }}</h2>
+                                    <p>{{ second_article_author }}</p>
+                                </a>
                             </header>
                             <hr />
-                            <p>{{ second_article.content|safe|striptags|truncatechars:250 }}</p>
+                            <a href="{% url 'article_detail' second_article.id %}" class="article-detail">
+                                <p>{{ second_article.content|safe|striptags|truncatechars:250 }}</p>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -136,11 +150,15 @@
                         </div>
                         <div class="content">
                             <header class="align-center">
-                                <h2>{{ third_article.title }}</h2>
-                                <p>{{ third_article_author }}</p>
+                                <a href="{% url 'article_detail' third_article.id %}" class="article-detail">
+                                    <h2>{{ third_article.title }}</h2>
+                                    <p>{{ third_article_author }}</p>
+                                </a>
                             </header>
                             <hr />
-                            <p>{{ third_article.content|safe|striptags|truncatechars:250 }}</p>
+                            <a href="{% url 'article_detail' third_article.id %}" class="article-detail">
+                                <p>{{ third_article.content|safe|striptags|truncatechars:250 }}</p>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -161,52 +179,6 @@
 
         </div>
     </section>
-
-<!-- Footer -->
-    <footer id="footer" class="wrapper">
-        <div class="inner">
-            <section>
-                <div class="box">
-                    <div class="content">
-                        <h2 class="align-center">联系我们</h2>
-                        <hr />
-                        <form action="#" method="post">
-                            <div class="field half first">
-                                <label for="name">Name</label>
-                                <input name="name" id="name" type="text" placeholder="Name">
-                            </div>
-                            <div class="field half">
-                                <label for="email">Email</label>
-                                <input name="email" id="email" type="email" placeholder="Email">
-                            </div>
-                            <div class="field">
-                                <label for="dept">Department</label>
-                                <div class="select-wrapper">
-                                    <select name="dept" id="dept">
-                                        <option value="">- Category -</option>
-                                        <option value="1">Manufacturing</option>
-                                        <option value="1">Shipping</option>
-                                        <option value="1">Administration</option>
-                                        <option value="1">Human Resources</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="field">
-                                <label for="message">Message</label>
-                                <textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
-                            </div>
-                            <ul class="actions align-center">
-                                <li><input value="Send Message" class="button special" type="submit"></li>
-                            </ul>
-                        </form>
-                    </div>
-                </div>
-            </section>
-            <div class="copyright">
-                &copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>. Images <a href="https://unsplash.com/">Unsplash</a>. Video <a href="http://coverr.co/">Coverr</a>.
-            </div>
-        </div>
-    </footer>
 
 
 

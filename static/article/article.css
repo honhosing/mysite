@@ -71,3 +71,12 @@ div.like .active {
     /*color: #f22;*/
     color: orange;
 }
+p {
+    font-family: "Taviraj", serif;
+    font-weight: 300;
+    font-size: 15px;
+}
+p > img {
+    width: 80%;
+    margin: 0 10%;
+}

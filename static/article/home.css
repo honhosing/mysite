@@ -23,3 +23,20 @@ div.hot-data {
     text-align: center;
     margin-top: 2em;
 }
+div#main-logo-lg {
+    width:700px;
+    margin: 0 auto;
+    background-image: url(/static/images/btc-mag-logo-p.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center bottom;
+    min-height: 110px;
+    margin-bottom: 1rem;
+}
+h1.banner-header {
+    text-indent: -50000em;
+    display: none;
+}
+a.article-detail {
+    color: #a6a6a6!important;
+}
