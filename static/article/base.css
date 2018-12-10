@@ -11,3 +11,27 @@ ul {
 ul.navbar-right {
     margin-right: 0;
 }
+
+#footer {
+    padding: 6rem 0 0 0!important;
+}
+#footer div.inner {
+    width: 100%;
+    background-color: #f2f2f2;
+    padding: 3em 0;
+}
+#footer .copyright {
+    color: #bbb;
+    font-size: 1.2em;
+    margin: 0 0 2rem 0;
+    padding: 0;
+    text-align: center;
+    font-family: "Taviraj", serif;
+    font-weight: 300;
+    font-size: ;
+}
+#footer div.copyright a {
+    color: #5AA6ED;
+    font-family: "Taviraj", serif;
+    font-weight: 300;
+}
