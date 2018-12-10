@@ -20,6 +20,10 @@ ul.navbar-right {
     background-color: #f2f2f2;
     padding: 3em 0;
 }
+#footer div.inner div.content {
+    width: 60%;
+    margin-left: 20%;
+}
 #footer .copyright {
     color: #bbb;
     font-size: 1.2em;
