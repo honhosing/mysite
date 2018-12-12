@@ -115,6 +115,7 @@
                 data: { input_value : string},
                 cache: false,
                 success: function (data) {
+                    alert(data)
                     if (data['status']=='SUCCESS') {
                         if (data['type'] == 'address') {
                             $(".panel-heading-title").html('查询【地址】：' + string);
@@ -132,7 +133,6 @@
                         }
                         else if (data['type'] == 'transaction') {
                             $(".panel-heading-title").html('查询【交易】：' + string);
-                            stop(1)
                             var data_list = '<div class="abstract-section data-section data-section-1">\n' +
                                 '                    <dl><dt>区块高度：</dt><dd>{0}</dd></dl>\n' +
                                 '                    <dl><dt>确认数：</dt><dd>{1}</dd></dl>\n' +

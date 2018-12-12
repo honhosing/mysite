@@ -136,11 +136,4 @@ def btcbrowser(request):
     # 获取地址的未花费交易列表，按照确认数正序排列。GET /address/{address}/unspent，如：url='https://chain.api.btc.com/v3/address/15urYnyeJe3gwbGJ74wcX89Tz7ZtsFDVew/unspent'
     # '''
 
-# url = 'https://chain.api.btc.com/v3/block/{}'.format('66666')
-# get_data = json.loads(requests.get(url).text)
-# data = {}
-# data['difficulty'] = cal_diff(get_data.get('data').get('difficulty'))
-# data['pool_difficulty'] = cal_diff(get_data.get('data').get('pool_difficulty'))
-# print(data['difficulty'])
-
 
