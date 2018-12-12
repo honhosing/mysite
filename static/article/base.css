@@ -26,13 +26,12 @@ ul.navbar-right {
 }
 #footer .copyright {
     color: #bbb;
-    font-size: 1.2em;
+    font-size: 1.4rem;
     margin: 0 0 2rem 0;
     padding: 0;
     text-align: center;
     font-family: "Taviraj", serif;
     font-weight: 300;
-    font-size: ;
 }
 #footer div.copyright a {
     color: #5AA6ED;

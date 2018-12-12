@@ -1,0 +1,217 @@
+{% extends 'base.html' %}
+
+{# 页面标题 #}
+{% block title %}
+    比特币区块浏览器
+{% endblock %}
+
+{% block nav_article_active %}active{% endblock %}
+
+{% load staticfiles %}
+{% load comment_tags %}
+{% block header_extends %}
+    <link rel="stylesheet" href="{% static 'article/btcbrowser.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+{% endblock %}
+
+{# 页面内容 #}
+{% block content %}
+    <div class="jumbotron">
+        <div class="container">
+            <div class="inner">
+                <h1>比特币区块浏览器(Beta)</h1>
+                <p>想查一下地址余额？想查一下交易上链没有？</p>
+                <div class="input-group">
+                    <input id="value" type="text" class="form-control input-lg" placeholder="请输入地址、交易哈希或高度（latest为最新高度）">
+                    <span id="search" onclick="search()" class="input-group-addon btn btn-primary">搜&nbsp;&nbsp;&nbsp;索</span>
+                </div>
+            </div>
+        </div>
+    </div>
+{#    <span id="search_error" class="text-danger pull-left"></span>#}
+    <div class="tx-table" style="display: none">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+                    <div class="panel panel-bm txAbstract">
+                        <div class="panel-heading">
+                            <div class="panel-heading-title">查询：</div>
+                        </div>
+                        <div class="panel-body text-center">
+                            <div class="tx-sheet embed-responsive embed-responsive-16by9"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block script_extends %}
+    <script type="text/javascript">
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie != '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        function csrfSafeMethod(method) {
+            // these HTTP methods do not require CSRF protection
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+            var csrftoken = getCookie('csrftoken');
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+        String.prototype.format = function () {
+            var str = this;
+            for(var i = 0; i < arguments.length; i++) {
+                var str = str.replace(new RegExp('\\{' + i + '\\}', 'g'), arguments[i])
+            };
+            return str;
+        };
+        function numFormat(num) {
+            return ('00' + num).substr(-2);
+        };
+        function timeFormat(timestamp) {
+            var datetime = new Date(timestamp);
+            var year = datetime.getFullYear();
+            var month = numFormat(datetime.getMonth() + 1);
+            var day = numFormat(datetime.getDate());
+            var hour = numFormat(datetime.getHours());
+            var minute = numFormat(datetime.getMinutes());
+            var second = numFormat(datetime.getSeconds());
+            return year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second
+        };
+        function search() {
+            // 判断是否为空
+            string = $("#value").val();
+            if(string.trim()==''){
+                $("#search_error").text('搜索内容不能为空');
+                return false;
+            }
+            if($(".tx-table").css('display') == 'none'){
+                $(".tx-table").show();
+            }
+            // 异步提交
+            $.ajax({
+                url: "{% url 'get_blockchain_data' %}",
+                type: 'POST',
+                data: { input_value : string},
+                cache: false,
+                success: function (data) {
+                    if (data['status']=='SUCCESS') {
+                        if (data['type'] == 'address') {
+                            $(".panel-heading-title").html('查询【地址】：' + string);
+                            var data_list = '<div class="abstract-section data-section data-section-1">\n' +
+                                '                    <dl><dt>地址：</dt><dd>{0}</dd></dl>\n' +
+                                '                    <dl><dt>余额：</dt><dd><span>{1}</span> BTC</dd></dl>\n' +
+                                '                    <dl><dt>交易次数：</dt><dd>{2}</dd></dl>\n' +
+                                '            </div>\n' +
+                                '            <div class="abstract-section data-section">\n' +
+                                '                    <dl><dt>总接收：</dt><dd><span>{3}</span> BTC</dd></dl>\n' +
+                                '                    <dl><dt>总支出：</dt><dd><span>{4}</span> BTC</dd></dl>\n' +
+                                '                    <dl><dt>未确认交易数：</dt><dd>{5}</dd></dl>\n' +
+                                '             </div>';
+                            data_list = data_list.format(data['address'], data['balance'], data['tx_count'], data['received'], data['sent'], data['unconfirmed_tx_count'])
+                        }
+                        else if (data['type'] == 'transaction') {
+                            $(".panel-heading-title").html('查询【交易】：' + string);
+                            stop(1)
+                            var data_list = '<div class="abstract-section data-section data-section-1">\n' +
+                                '                    <dl><dt>区块高度：</dt><dd>{0}</dd></dl>\n' +
+                                '                    <dl><dt>确认数：</dt><dd>{1}</dd></dl>\n' +
+                                '                    <dl><dt>出块时间：</dt><dd>{2}</dd></dl>\n' +
+                                '                    <dl><dt>大小：</dt><dd><span>{3}</span> Bytes</dd></dl>\n' +
+                                '                    <dl><dt>虚拟大小：</dt><dd><span>{4}</span> Bytes</dd></dl>\n' +
+                                '            </div>\n' +
+                                '            <div class="abstract-section data-section">\n' +
+                                '                    <dl><dt>区块重量：</dt><dd>{5}</dd></dl>\n' +
+                                '                    <dl><dt>输入：</dt><dd><span>{6}</span> BTC</dd></dl>\n' +
+                                '                    <dl><dt>输出：</dt><dd><span>{7}</span> BTC</dd></dl>\n' +
+                                '                    <dl><dt>Sigops：</dt><dd>{8}</dd></dl>\n' +
+                                '                    <dl><dt>矿工费：</dt><dd><span>{9}</span> BTC</dd></dl>\n' +
+                                '             </div>';
+                            data_list = data_list.format(data['block_height'], data['confirmations'], timeFormat(data['block_time']), data['size'], data['vsize'], data['weight'], data['inputs_value'], data['outputs_value'], data['sigops'], data['fee']);
+                        }
+                        else if (data['type'] == 'height'){
+                            $(".panel-heading-title").html('查询【高度】：' + string);
+                            var data_list = '<div class="abstract-section data-section data-section-1">\n' +
+                                '                    <dl><dt>区块高度：</dt><dd>{0}</dd></dl>\n' +
+                                '                    <dl><dt>确认数：</dt><dd>{1}</dd></dl>\n' +
+                                '                    <dl><dt>出块时间：</dt><dd>{2}</dd></dl>\n' +
+                                '                    <dl><dt>区块奖励：</dt><dd><span>{3}</span> BTC</dd></dl>\n' +
+                                '                    <dl><dt>矿工费：</dt><dd><span>{4}</span> BTC</dd></dl>\n' +
+                                '                    <dl><dt>大小：</dt><dd><span>{5}</span> Bytes</dd></dl>\n' +
+                                '                    <dl><dt>区块重量：</dt><dd>{6}</dd></dl>\n' +
+                                '                    <dl><dt>交易数：</dt><dd>{7}</dd></dl>\n' +
+                                '                    <dl><dt>版本：</dt><dd>{8}</dd></dl>\n' +
+                                '            </div>\n' +
+                                '            <div class="abstract-section data-section">\n' +
+                                '                    <dl><dt>难度：</dt><dd>{9} / {10}</dd></dl>\n' +
+                                '                    <dl><dt>隔离见证：</dt><dd>{11}</dd></dl>\n' +
+                                '                    <dl><dt>Bits：</dt><dd>{12}</dd></dl>\n' +
+                                '                    <dl><dt>Nonce：</dt><dd>{13}</dd></dl>\n' +
+                                '                    <dl><dt>播报方：</dt><dd><a href="{14}">{15}</a></dd></dl>\n' +
+                                '                    <dl><dt>区块哈希：</dt><dd>{16}</dd></dl>\n' +
+                                '                    <dl><dt>前一个块：</dt><dd>{17}</dd></dl>\n' +
+                                '                    <dl><dt>后一个块：</dt><dd>{18}</dd></dl>\n' +
+                                '                    <dl><dt>Merkle Root：</dt><dd>{19}</dd></dl>\n' +
+                                '             </div>';
+                            data_list = data_list.format(
+                                data['height'],
+                                data['confirmations'],
+                                timeFormat(data['created_at']),
+                                data['reward_block'],
+                                data['reward_fees'],
+                                data['size'],
+                                data['weight'],
+                                data['tx_count'],
+                                data['version'],
+                                data['pool_difficulty'], data['difficulty'],
+                                data['is_sw_block'],
+                                data['bits'],
+                                data['nonce'],
+                                data['pool_link'], data['pool_name'],
+                                data['hash'],
+                                data['prev_block_hash'],
+                                data['next_block_hash'],
+                                data['mrkl_root']
+                            )
+                        }
+                        $(".tx-sheet").html(data_list);
+                    }
+                    else {
+                        $(".panel-heading-title").html('查询失败：'+string);
+                        $(".tx-sheet").html('<h1 style="text-align:center">你输入的内容有误，无法找到匹配结果</h1>');
+                    }
+                },
+                error: function (xhr) {
+                    console.log(xhr);
+                    alert('出现错误，请联系网站管理员')
+                }
+            });
+            return false;
+        };
+        $('#value').bind('keypress', function (event) {//回车搜索
+            if(event.keyCode== 13){
+                search();//搜索函数
+            }
+        });
+    </script>
+{% endblock %}
