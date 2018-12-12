@@ -102,35 +102,37 @@ def get_data_by_txhash(hash):
 
 def get_blockchain_data(request):
     string = request.GET.get("search")
-    try:
-        if string == 'latest' or string == '0' or (len(string) < 8 and type(eval(string)) == int):
-            context = get_data_by_height(string)
-            context['status'] = 'SUCCESS'
-            context['type'] = 'height'
-            context['title'] = '【高度】：' + string
-        elif len(string) == 34:
-            context = get_data_by_address(string)
-            context['status'] = 'SUCCESS'
-            context['type'] = 'address'
-            context['title'] = '【地址】：' + string
-        elif len(string) == 64:
-            context = get_data_by_txhash(string)
-            context['status'] = 'SUCCESS'
-            context['type'] = 'transaction'
-            context['title'] = '【交易哈希】：' + string
-        elif string == None:
-            context = {}
-            context['status'] = 'EMPTY'
-        else:
+    if string is None:
+        context = {}
+        context['status'] = 'EMPTY'
+        return context
+    else:
+        try:
+            if string == 'latest' or string == '0' or (len(string) < 8 and type(eval(string)) == int):
+                context = get_data_by_height(string)
+                context['status'] = 'SUCCESS'
+                context['type'] = 'height'
+                context['title'] = '【高度】：' + string
+            elif len(string) == 34:
+                context = get_data_by_address(string)
+                context['status'] = 'SUCCESS'
+                context['type'] = 'address'
+                context['title'] = '【地址】：' + string
+            elif len(string) == 64:
+                context = get_data_by_txhash(string)
+                context['status'] = 'SUCCESS'
+                context['type'] = 'transaction'
+                context['title'] = '【交易哈希】：' + string
+            else:
+                context = {}
+                context['status'] = 'ERROR'
+                context['title'] = string
+            return context
+        except:
             context = {}
             context['status'] = 'ERROR'
             context['title'] = string
-        return context
-    except:
-        context = {}
-        context['status'] = 'ERROR'
-        context['title'] = string
-        return context
+            return context
 
 def btcbrowser(request):
     context = get_blockchain_data(request)

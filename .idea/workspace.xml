@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08c00c59-67f2-4764-b924-38904c620fbf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/templates/article/article_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/article/templates/article/article_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/btcbrowser/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/btcbrowser/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/article/article.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/article/article.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/article/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/article/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/article/btcbrowser.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/article/btcbrowser.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/btcbrowser.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/btcbrowser.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +47,7 @@
           <entry key="css" value="1927" />
           <entry key="dummy" value="8" />
           <entry key="html" value="11750" />
-          <entry key="py" value="19228" />
+          <entry key="py" value="19250" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -62,7 +55,7 @@
           <entry key="CSS" value="1927" />
           <entry key="HTML" value="11750" />
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="Python" value="19228" />
+          <entry key="Python" value="19250" />
         </counts>
       </usages-collector>
     </session>
@@ -115,11 +108,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/btcbrowser/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1127">
-              <caret line="140" column="86" selection-start-line="140" selection-start-column="22" selection-end-line="140" selection-end-column="86" />
+            <state relative-caret-position="93">
+              <caret line="107" column="22" lean-forward="true" selection-start-line="107" selection-start-column="22" selection-end-line="107" selection-end-column="22" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -143,7 +136,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/article/btcbrowser.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="426">
@@ -239,10 +232,10 @@
         <option value="$PROJECT_DIR$/article/templates/article/article_list.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/static/article/base.css" />
-        <option value="$PROJECT_DIR$/btcbrowser/views.py" />
         <option value="$PROJECT_DIR$/templates/btcbrowser.html" />
         <option value="$PROJECT_DIR$/static/article/article.css" />
         <option value="$PROJECT_DIR$/static/article/btcbrowser.css" />
+        <option value="$PROJECT_DIR$/btcbrowser/views.py" />
       </list>
     </option>
   </component>
@@ -848,16 +841,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/btcbrowser/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1127">
-          <caret line="140" column="86" selection-start-line="140" selection-start-column="22" selection-end-line="140" selection-end-column="86" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/article/templates/article/article_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -890,6 +873,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="426">
           <caret line="69" column="1" lean-forward="true" selection-start-line="69" selection-start-column="1" selection-end-line="69" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/btcbrowser/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="107" column="22" lean-forward="true" selection-start-line="107" selection-start-column="22" selection-end-line="107" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
