@@ -11,6 +11,16 @@ h1.home-content {
     transform: translate(-50%,-50%);
     */
 }
+#banner a {
+    background-color: #ff9200ed!important;
+}
+.button.special {
+    background-color: #ff9200ed!important;
+}
+.wrapper.style3 a {
+    color: #ff9200!important;
+    font-weight: 500;
+}
 
 div#container {
     margin: 0 auto;
@@ -22,6 +32,10 @@ div#container {
 div.hot-data {
     text-align: center;
     margin-top: 2em;
+}
+div.hot-data ul li {
+    text-align: left;
+    padding-bottom: 0.5rem;
 }
 div#main-logo-lg {
     width:700px;

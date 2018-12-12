@@ -26,12 +26,18 @@ ul.article-info-description li {
     display: inline-block;
     margin-right: 1em;
 }
+ul.article-info-description li a {
+    color: #ff9200;
+}
 div.article-content {
     /*text-indent: 2em;*/
     margin-bottom: 2em;
 }
 div.article-more {
     margin-top: 1em;
+}
+div.article-more p a {
+    color: #ff9200;
 }
 div.comment-area {
     margin-top: 2em;
@@ -47,6 +53,9 @@ div.comment {
     border-bottom: 1px dashed #ccc;
     margin-bottom: 0.5em;
     padding-bottom: 0.5em;
+}
+div.comment a {
+    color: #ff9200;
 }
 div.reply {
     margin-left: 2em;
@@ -71,7 +80,8 @@ div.panel-body li a {
     font-weight: bold;
 }
 div.like {
-    color: #337ab7;
+    color: #ff9200;
+    /*color: #337ab7;*/
     cursor: pointer;
     display: inline-block;
     padding: 0.5em 0.3em;
@@ -88,4 +98,11 @@ p {
 div.article-content p img {
     width: 80%;
     margin: 0 10%;
+}
+.pagination>.active>span {
+    background-color: #ff9200;
+    border-color: #ff7f00;
+}
+.pagination>li>a {
+    color: #ff9200;
 }

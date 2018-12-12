@@ -75,13 +75,15 @@
                     <header>
                         <h3>今日热门文章</h3>
                     </header>
-                    {% for hot_data in today_hot_data %}
-                        <li><a href="{% url 'article_detail' hot_data.content_object.pk %}">{{ hot_data.content_object.title }}</a>
-                            （{{ hot_data.read_num }}）
-                        </li>
-                    {% empty %}
-                        <li>今天暂时没有热门文章</li>
-                    {% endfor %}
+                    <ul>
+                        {% for hot_data in today_hot_data %}
+                            <li><a href="{% url 'article_detail' hot_data.content_object.pk %}">{{ hot_data.content_object.title }}</a>
+                                （{{ hot_data.read_num }}）
+                            </li>
+                        {% empty %}
+                            <li>今天暂时没有热门文章</li>
+                        {% endfor %}
+                    </ul>
 {#                    <ul class="actions">#}
 {#                        <li><a href="#" class="button alt">Learn More</a></li>#}
 {#                    </ul>#}
@@ -182,16 +184,26 @@
     <script>
         // 图表配置
         var options = {
+            colors: ['#ff9200'],
             chart: {
-                type: 'line'                //指定图表的类型，默认是折线图（line）
+                type: 'line',                //指定图表的类型，默认是折线图（line）
+                backgroundColor: 'rgba(0,0,0,0)'
             },
             title: {
                 text: null                 // 标题
             },
             xAxis: {
-                categories: {{ dates|safe }},   // x 轴分类
+                categories: {{ dates|safe }}, // x 轴分类
                 tickMarkPlacement: 'on',
-                title: { text: '近7日阅读量变化' },
+                labels: {style:{color:'white'}},
+                title: {
+                    text: '近7日阅读量变化',
+                    style: {
+                        fontSize: '14px',
+                        color: 'white',
+                    }
+                },
+
             },
             yAxis: {
                 title: {
@@ -202,12 +214,23 @@
             },
             series: [{                              // 数据列
                 name: '阅读量',                        // 数据列名
-                data: {{ read_nums }}                     // 数据
+                data: {{ read_nums }},                     // 数据
             }],
             plotOptions: {
-                line: {
+                series: {
+                    animation: {
+                        duration: 1000,
+                        easing: 'easeOutBounce'
+                    },
                     dataLabels: {
-                        enabled: true
+                        enabled: true,
+                        align: 'left',
+                        x: -3,
+                        style: {
+                            fontSize: '15px',
+                            color: 'white',
+                            textOutline: false
+                        }
                     }
                 }
             },
