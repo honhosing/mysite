@@ -50,8 +50,23 @@ div.panel-bm .panel-heading {
     text-overflow: ellipsis;
     word-break:break-all;
 }
+
+#search_error {
+    text-align: center;
+    margin: 10% 0;
+    font-size: large;
+    height: 180px;
+}
+
+div.tx-table-empty {
+    height: 300px;
+    background: white;
+}
 div.tx-table {
     text-align: center;
+}
+div.tx-table h1{
+    margin: 100px;
 }
 div.tx-table .container {
     margin-bottom: 2em;
@@ -101,4 +116,8 @@ div.data-section-1 {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+#footer {
+    margin-top: 4rem;
 }

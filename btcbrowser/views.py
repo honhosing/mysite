@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 import requests
 import json
+import time
 
 # Create your views here.
 def ErrorResponse(message):
@@ -9,6 +10,14 @@ def ErrorResponse(message):
     data['status'] = 'ERROR'
     data['message'] = message
     return JsonResponse(data)
+
+def timestamp_datatime(value):
+    # format = '%Y-%m-%d %H:%M'
+    format = '%Y-%m-%d %H:%M:%S'
+    #value 为时间戳值,如:1460073600.0
+    value = time.localtime(value)
+    dt = time.strftime(format, value)
+    return dt
 
 def cal_diff(num):
     level = int(len(str(int(num))) / 3)
@@ -26,6 +35,8 @@ def get_data_by_height(text):
     get_data = json.loads(requests.get(url).text)
     data = {}
     data['height'] = get_data.get('data').get('height')
+    data['prev_height'] = data['height'] - 1
+    data['next_height'] = data['height'] + 1
     data['confirmations'] = get_data.get('data').get('confirmations')
     data['reward_block'] = get_data.get('data').get('reward_block') / 10**8
     data['reward_fees'] = get_data.get('data').get('reward_fees') / 10**8
@@ -44,9 +55,12 @@ def get_data_by_height(text):
     data['nonce'] = get_data.get('data').get('nonce')
     data['pool_link'] = get_data.get('data').get('extras').get('pool_link')
     data['pool_name'] = get_data.get('data').get('extras').get('pool_name')
-    data['created_at'] = get_data.get('data').get('created_at')
+    data['timestamp'] = timestamp_datatime(get_data.get('data').get('timestamp'))
     data['hash'] = get_data.get('data').get('hash')
-    data['prev_block_hash'] = get_data.get('data').get('prev_block_hash')
+    if get_data.get('data').get('prev_block_hash') == '0000000000000000000000000000000000000000000000000000000000000000':
+        data['prev_block_hash'] = '不存在'
+    else:
+        data['prev_block_hash'] = get_data.get('data').get('prev_block_hash')
     if get_data.get('data').get('next_block_hash') == '0000000000000000000000000000000000000000000000000000000000000000':
         data['next_block_hash'] = '还没出块'
     else:
@@ -73,7 +87,7 @@ def get_data_by_txhash(hash):
     data = {}
     data['block_height'] = get_data.get('data').get('block_height')
     data['confirmations'] = get_data.get('data').get('confirmations')
-    data['block_time'] = get_data.get('data').get('block_time')
+    data['block_time'] = timestamp_datatime(get_data.get('data').get('block_time'))
     data['size'] = get_data.get('data').get('size')
     data['vsize'] = get_data.get('data').get('vsize')
     data['weight'] = get_data.get('data').get('weight')
@@ -87,31 +101,40 @@ def get_data_by_txhash(hash):
 
 
 def get_blockchain_data(request):
-    string = request.POST.get("input_value")
+    string = request.GET.get("search")
     try:
-        if string == 'latest' or (len(string) < 8 and type(eval(string))==int):
+        if string == 'latest' or string == '0' or (len(string) < 8 and type(eval(string)) == int):
             context = get_data_by_height(string)
             context['status'] = 'SUCCESS'
             context['type'] = 'height'
+            context['title'] = '【高度】：' + string
         elif len(string) == 34:
             context = get_data_by_address(string)
             context['status'] = 'SUCCESS'
             context['type'] = 'address'
+            context['title'] = '【地址】：' + string
         elif len(string) == 64:
             context = get_data_by_txhash(string)
             context['status'] = 'SUCCESS'
             context['type'] = 'transaction'
+            context['title'] = '【交易哈希】：' + string
+        elif string == None:
+            context = {}
+            context['status'] = 'EMPTY'
         else:
             context = {}
             context['status'] = 'ERROR'
-        return JsonResponse(context)
+            context['title'] = string
+        return context
     except:
         context = {}
         context['status'] = 'ERROR'
-        return JsonResponse(context)
+        context['title'] = string
+        return context
 
 def btcbrowser(request):
-    return render(request, 'btcbrowser.html')
+    context = get_blockchain_data(request)
+    return render(request, 'btcbrowser.html', context)
 
     # '''
     # string_of_address = '15urYnyeJe3gwbGJ74wcX89Tz7ZtsFDVew'  # 34位数

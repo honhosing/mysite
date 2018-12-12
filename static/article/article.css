@@ -8,6 +8,7 @@ div.article:not(:last-child) {
 }
 div.article h3 {
     margin-top: 0.5em;
+    font-weight: 800;
 }
 div.article p.article-info a {
     margin-bottom: 0;
@@ -60,6 +61,14 @@ div#reply_content_container {
 p#reply_title {
     border-bottom: 1px dashed #ccc;
     padding-bottom: 0.5em;
+}
+p.article-info a {
+    color: #ff9200!important;
+    font-weight: 800;
+}
+div.panel-body li a {
+    color: #ff9200!important;
+    font-weight: bold;
 }
 div.like {
     color: #337ab7;
