@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08c00c59-67f2-4764-b924-38904c620fbf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/btcbrowser/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/btcbrowser/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/btcbrowser.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/btcbrowser.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,7 +47,7 @@
           <entry key="css" value="1851" />
           <entry key="dummy" value="8" />
           <entry key="html" value="10811" />
-          <entry key="py" value="18773" />
+          <entry key="py" value="18779" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -56,7 +55,7 @@
           <entry key="CSS" value="1851" />
           <entry key="HTML" value="10811" />
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="Python" value="18773" />
+          <entry key="Python" value="18779" />
         </counts>
       </usages-collector>
     </session>
@@ -115,8 +114,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/btcbrowser/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="930">
-              <caret line="62" column="67" lean-forward="true" selection-start-line="62" selection-start-column="67" selection-end-line="62" selection-end-column="67" />
+            <state relative-caret-position="1350">
+              <caret line="90" column="8" lean-forward="true" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -127,8 +126,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/btcbrowser.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="117" column="31" lean-forward="true" selection-start-line="117" selection-start-column="31" selection-end-line="117" selection-end-column="31" />
+            <state relative-caret-position="251">
+              <caret line="116" column="42" selection-start-line="116" selection-start-column="42" selection-end-line="116" selection-end-column="42" />
               <folding>
                 <element signature="e#751#757#0#HTML" expanded="true" />
                 <element signature="e#757#763#0#HTML" expanded="true" />
@@ -903,8 +902,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/btcbrowser/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="62" column="67" lean-forward="true" selection-start-line="62" selection-start-column="67" selection-end-line="62" selection-end-column="67" />
+        <state relative-caret-position="1350">
+          <caret line="90" column="8" lean-forward="true" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
@@ -913,8 +912,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/btcbrowser.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="117" column="31" lean-forward="true" selection-start-line="117" selection-start-column="31" selection-end-line="117" selection-end-column="31" />
+        <state relative-caret-position="251">
+          <caret line="116" column="42" selection-start-line="116" selection-start-column="42" selection-end-line="116" selection-end-column="42" />
           <folding>
             <element signature="e#751#757#0#HTML" expanded="true" />
             <element signature="e#757#763#0#HTML" expanded="true" />

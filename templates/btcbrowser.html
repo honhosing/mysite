@@ -115,7 +115,6 @@
                 data: { input_value : string},
                 cache: false,
                 success: function (data) {
-                    alert(data)
                     if (data['status']=='SUCCESS') {
                         if (data['type'] == 'address') {
                             $(".panel-heading-title").html('查询【地址】：' + string);
