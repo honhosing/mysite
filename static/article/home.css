@@ -37,8 +37,10 @@ div.hot-data ul li {
     text-align: left;
     padding-bottom: 0.5rem;
 }
+div.inner {
+    width: 70%;
+}
 div#main-logo-lg {
-    width:700px;
     margin: 0 auto;
     background-image: url(/static/images/btc-mag-logo-p.svg);
     background-repeat: no-repeat;
