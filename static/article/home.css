@@ -14,6 +14,9 @@ h1.home-content {
 #banner a {
     background-color: #ff9200ed!important;
 }
+#banner .button {
+    width: 50%;
+}
 .button.special {
     background-color: #ff9200ed!important;
 }

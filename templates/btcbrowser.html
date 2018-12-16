@@ -107,10 +107,23 @@
             </div>
         </div>
     {% endif %}
+        <div style="text-align: center;margin-bottom: 20px;">
+            <button id="video-btn" style="background-color: #ff9200;color: white!important;box-shadow: 1px 1px 5px #ccc;">&nbsp;视频板块Alpha&nbsp;</button>
+        </div>
+        <div id="videoplayer">
+            <video id="video" controls="" preload="none" poster="https://snap1.d.tube/ipfs/QmcbhddedeoAoThM1xMgPfDPuv5ET4tTvemokJ2TsqkBV5">
+                <source id="mp4" src="https://www.eternum.io/ipfs/QmadscQfrjny43P8gvUFf64QCdA8oTGoBo9NhXpZFmAD5S" type="video/mp4">
+                <p>Your user agent does not support the HTML5 Video element.</p>
+            </video>
+        </div>
+
 {% endblock %}
 
 {% block script_extends %}
     <script type="text/javascript">
+        $("#video-btn").on("click", function () {
+            $("#videoplayer").toggle();
+        });
         function search() {
             // 判断是否为空
             string = $("#value").val();
