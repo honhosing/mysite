@@ -187,6 +187,8 @@ h5.panel-name {
     border-top: 5px solid rgb(255, 159, 28);
     background-color: white;
     margin-bottom: 30px;
+    margin-left: -20px;
+    margin-right: -20px;
 }
 .latest-articles .ui-article-list h1.title {
     font-size: 1.8vmax;
@@ -238,7 +240,6 @@ h5.panel-name {
 .main-content {
     padding:2em;
     display: block;
-    text-align: justify;
 }
 .main-content:after {
     display: block;
