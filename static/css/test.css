@@ -184,10 +184,10 @@ h5.panel-name {
     margin-bottom: 30px;
 }
 .latest-articles .ui-article-list h1.title {
-    font-size: 2.8vw;
+    font-size: 1.8vmax;
     font-min-size: 24px;
     letter-spacing: 0;
-    line-height: 2.8vw;
+    line-height: 2vmax;
     font-weight: 700;
 }
 .latest-articles .content {
