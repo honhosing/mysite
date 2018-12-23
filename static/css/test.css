@@ -238,6 +238,7 @@ h5.panel-name {
 .main-content {
     padding:2em;
     display: block;
+    text-align: justify;
 }
 .main-content:after {
     display: block;
