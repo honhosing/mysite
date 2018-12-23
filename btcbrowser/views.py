@@ -161,3 +161,6 @@ def btcbrowser(request):
     # 获取地址的未花费交易列表，按照确认数正序排列。GET /address/{address}/unspent，如：url='https://chain.api.btc.com/v3/address/15urYnyeJe3gwbGJ74wcX89Tz7ZtsFDVew/unspent'
     # '''
 
+
+def test(request):
+    return render(request, 'test.html')

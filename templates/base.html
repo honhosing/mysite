@@ -17,7 +17,7 @@
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="{% url 'home' %}">BTC Inc</a>
+                <a class="navbar-brand" href="{% url 'home' %}">D&R</a>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                         data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                     <!--<span class="sr-only">Toggle navigation</span>-->
@@ -38,6 +38,7 @@
                             <ul class="dropdown-menu">
                                 <li class="{% block nav_price_and_data_active %}{% endblock %}"><a href="{% url 'article_list' %}">行情&数据</a></li>
                                 <li class="{% block nav_event_active %}{% endblock %}"><a href="{% url 'article_list' %}">活动</a></li>
+                                <li class="{% block nav_test_active %}{% endblock %}"><a href="{% url 'test' %}">测试</a></li>
                             </ul>
                         </li>
                     </ul>

@@ -11,11 +11,30 @@ h1.home-content {
     transform: translate(-50%,-50%);
     */
 }
+.navbar-default .navbar-toggle {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.navbar-toggle .icon-bar {
+    width: 20px;
+}
+.navbar-default .navbar-brand {
+    color: #ff9e00;
+    font-size: 25px;
+}
+#banner {
+    margin-top: 50px;
+}
 #banner a {
     background-color: #ff9200ed!important;
 }
+#banner .inner p {
+    font-weight: 700;
+}
 #banner .button {
-    width: 50%;
+    width: 120px;
 }
 .button.special {
     background-color: #ff9200ed!important;
@@ -45,7 +64,7 @@ div.inner {
 }
 div#main-logo-lg {
     margin: 0 auto;
-    background-image: url(/static/images/btc-mag-logo-p.svg);
+    background-image: url(/static/images/logo.svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center bottom;

@@ -6,16 +6,15 @@
 {% endblock %}
 
 {% block header_extends %}
-    <link rel="stylesheet" href="../static/assets/css/main.css" />
-    <link rel="stylesheet" href="{% static 'article/home.css' %}">
     <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
-
     <script src="../static/assets/js/jquery.min.js"></script>
     <script src="../static/assets/js/jquery.scrolly.min.js"></script>
     <script src="../static/assets/js/jquery.scrollex.min.js"></script>
     <script src="../static/assets/js/skel.min.js"></script>
     <script src="../static/assets/js/util.js"></script>
     <script src="../static/assets/js/main.js"></script>
+    <link rel="stylesheet" href="../static/assets/css/main.css" />
+    <link rel="stylesheet" href="{% static 'article/home.css' %}">
 {% endblock %}
 
 {% block nav_home_active %}active{% endblock %}
@@ -33,7 +32,7 @@
         <div class="inner">
             <a href="/">
                 <div id="main-logo-lg">
-                    <h1 class="banner-header">Bitcoin Magazine</h1>
+                    <h1 class="banner-header">Dodge Rabbit</h1>
                 </div>
             </a>
             <p>多读书<br/>多看报<br/>少吃零食<br/>多睡觉</p>
@@ -211,6 +210,7 @@
                 },
                 labels: { enabled: false },
                 gridLineDashStyle: 'Dash',
+                gridLineColor: 'rgba(255,255,255,0.3)',
             },
             series: [{                              // 数据列
                 name: '阅读量',                        // 数据列名
