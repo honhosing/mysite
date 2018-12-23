@@ -260,7 +260,6 @@ h5.panel-name {
     list-style-type: disc;
     margin-block-start: 1em;
     margin-block-end: 1em;
-    margin: auto 0;
     padding-left: 40px;
 }
 .main-content>* {
