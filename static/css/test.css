@@ -111,10 +111,12 @@ ul.dropdown-menu li a {
     border: 0;
     background-color: white;
 }
+.navbar-mobile > div.navbar-header {
+    margin-right: 0;
+}
 .navbar-mobile #bs-example-navbar-collapse-1 {
     position: relative;
     left: 0;
-    overflow-y: visible;
 }
 .navbar-mobile .nav.navbar-nav.f-left {
     margin: 0;
@@ -125,6 +127,10 @@ ul.dropdown-menu li a {
     right: 13px;
     font-size: 25px;
     top: 13px;
+}
+#bs-example-navbar-collapse-1 {
+    max-height: 600px;
+    overflow-y: scroll;
 }
 #bs-example-navbar-collapse-1 > ul > li {
     display: table;
