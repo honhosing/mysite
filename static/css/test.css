@@ -97,12 +97,16 @@ ul.dropdown-menu li a {
     cursor: pointer;
 }
 /*mobile*/
+.navbar-mobile .navbar-header .logo-mobile {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+}
 .navbar-mobile .navbar-header a {
     display: block;
-    float: none;
 }
 .navbar-mobile .navbar-header a img {
-    margin: 0 auto;
+    margin-top: 0;
 }
 .navbar-mobile .navbar-header button,
 .navbar-mobile .navbar-header button:focus,
