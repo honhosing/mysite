@@ -7,6 +7,7 @@ body {
     font-family: "Source Sans Pro", sans-serif;
     width: 100%;
     height: 100%;
+    min-width: 320px;
 }
 /*常用样式*/
 .f-left {
@@ -26,6 +27,7 @@ body {
     -webkit-box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
     box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
     font-size: 1.21428571rem;
+    min-width: 320px;
 }
 .navbar-brand {
     padding:0;
@@ -94,6 +96,44 @@ ul.dropdown-menu li a {
     line-height: 65px;
     cursor: pointer;
 }
+/*mobile*/
+.navbar-mobile .navbar-header a {
+    display: block;
+    float: none;
+}
+.navbar-mobile .navbar-header a img {
+    margin: 0 auto;
+}
+.navbar-mobile .navbar-header button,
+.navbar-mobile .navbar-header button:focus,
+.navbar-mobile .navbar-header button:hover {
+    float: left;
+    border: 0;
+    background-color: white;
+}
+.navbar-mobile #bs-example-navbar-collapse-1 {
+    position: relative;
+    left: 0;
+    overflow-y: visible;
+}
+.navbar-mobile .nav.navbar-nav.f-left {
+    margin: 0;
+    position:relative;
+}
+.navbar-mobile .glyphicon-search {
+    position: absolute;
+    right: 13px;
+    font-size: 25px;
+    top: 13px;
+}
+#bs-example-navbar-collapse-1 > ul > li {
+    display: table;
+}
+#bs-example-navbar-collapse-1 > ul > li > ul {
+    float:left;
+}
+
+
 
 
 /*主体*/
@@ -107,6 +147,9 @@ h5.panel-name {
     text-transform: uppercase;
     margin-bottom: 25px;
     font-weight: 700;
+}
+.col-lg-3 {
+    margin-right: 40px;
 }
 
 /*市场价格*/
@@ -127,6 +170,9 @@ h5.panel-name {
 }
 .table>thead>tr>th {
     text-align: right;
+}
+.table>thead>tr>th:first-child {
+    text-align: left;
 }
 .table>tbody>tr>td {
     font-weight: 800;
@@ -192,7 +238,6 @@ h5.panel-name {
 }
 .latest-articles .ui-article-list h1.title {
     font-size: 1.8vmax;
-    font-min-size: 24px;
     letter-spacing: 0;
     line-height: 2vmax;
     font-weight: 700;

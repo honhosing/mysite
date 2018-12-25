@@ -14,63 +14,118 @@
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/btcbrowser/test"><img src="{% static '/images/logo-small.svg' %}"></a>
+        <div class="container-fluid navbar-mobile">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/btcbrowser/test"><img src="{% static '/images/logo-small.svg' %}"></a>
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               <ul class="nav navbar-nav f-left">
+                <li><a href="#">行情<span class="sr-only">(current)</span></a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">板块<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">数字货币</a></li>
+                    <li><a href="#">DApp</a></li>
+                    <li><a href="#">投资</a></li>
+                    <li><a href="#">政策</a></li>
+                    <li><a href="#">研究</a></li>
+                    <li><a href="#">企业</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">指南<span class="sr-only">(current)</span></a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">活动<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Distributed Health 2018</a></li>
+                    <li><a href="#">Distributed 2018</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">电台<span class="sr-only">(current)</span></a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">刊物</a></li>
+                    <li><a href="#">隐私条款</a></li>
+                  </ul>
+                </li>
+                   <li><a href="#">注册</a></li>
+              </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse f-right" id="bs-example-navbar-collapse-1">
-           <ul class="nav navbar-nav f-left">
-            <li><a href="#">行情<span class="sr-only">(current)</span></a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">板块<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">数字货币</a></li>
-                <li><a href="#">DApp</a></li>
-                <li><a href="#">投资</a></li>
-                <li><a href="#">政策</a></li>
-                <li><a href="#">研究</a></li>
-                <li><a href="#">企业</a></li>
+        <div class="container-fluid navbar-pc">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/btcbrowser/test"><img src="{% static '/images/logo-small.svg' %}"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse f-right" id="bs-example-navbar-collapse-1">
+               <ul class="nav navbar-nav f-left">
+                <li><a href="#">行情<span class="sr-only">(current)</span></a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">板块<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">数字货币</a></li>
+                    <li><a href="#">DApp</a></li>
+                    <li><a href="#">投资</a></li>
+                    <li><a href="#">政策</a></li>
+                    <li><a href="#">研究</a></li>
+                    <li><a href="#">企业</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">指南<span class="sr-only">(current)</span></a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">活动<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Distributed Health 2018</a></li>
+                    <li><a href="#">Distributed 2018</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">电台<span class="sr-only">(current)</span></a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">刊物</a></li>
+                    <li><a href="#">隐私条款</a></li>
+                  </ul>
+                </li>
               </ul>
-            </li>
-            <li><a href="#">指南<span class="sr-only">(current)</span></a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">活动<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Distributed Health 2018</a></li>
-                <li><a href="#">Distributed 2018</a></li>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">注册</a></li>
+                <li class="navbar-search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></li>
               </ul>
-            </li>
-            <li><a href="#">电台<span class="sr-only">(current)</span></a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">关于我们</a></li>
-                <li><a href="#">刊物</a></li>
-                <li><a href="#">隐私条款</a></li>
-              </ul>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">注册</a></li>
-            <li class="navbar-search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
+            </div>
+              <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+
     </nav>
     <div class="main-body">
         <div class="container container-fluid">
             <div class="row">
-                <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-                    <div class="col-md-4 col-lg-4">
+{#                <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">#}
+                    <div class="col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-2">
                         <div class="top-markets">
                             <h5 class="panel-name">TOP MARKETS</h5>
                             <div class="ui-segment">
@@ -175,7 +230,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-8 col-lg-8">
+                    <div class="col-md-7 col-lg-5">
                         <div class="latest-articles">
                             <h5 class="panel-name">LATEST ARTICLES</h5>
                             <div class="ui-article-list">
@@ -510,7 +565,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+{#                </div>#}
             </div>
         </div>
     </div>
@@ -519,31 +574,43 @@
 </body>
 <script>
     if ($(window).width() <= 768) {
-        $(".navbar-header").css("height", "");
+        {#$(".navbar-header").css("height", "");#}
+        $(".navbar-pc").hide();
+        $(".navbar-mobile").show();
         $(".top-markets").hide();
         $(".top-stories").hide();
         $(".panel-name").hide();
+        $('.ui-article-list>.content>h1.title').css("font-size", "20px");
     }
     else{
+        $(".navbar-pc").show();
         $(".navbar-header").css("height", "65px");
+        $(".navbar-mobile").hide();
         $(".top-markets").show();
         $(".top-stories").show();
         $(".panel-name").show();
+        $('.ui-article-list>.content>h1.title').css("font-size", "1.8vmax");
     };
 
     window.onresize = function () {
         var width =  $(window).width();
         if (width <= 768) {
-            $(".navbar-header").css("height", "");
+            {#$(".navbar-header").css("height", "");#}
+            $(".navbar-pc").hide();
+            $(".navbar-mobile").show();
             $(".top-markets").hide();
             $(".top-stories").hide();
             $(".panel-name").hide();
+            $('.ui-article-list>.content>h1.title').css("font-size", "20px");
         }
         else{
+            $(".navbar-pc").show();
             $(".navbar-header").css("height", "65px");
+            $(".navbar-mobile").hide();
             $(".top-markets").show();
             $(".top-stories").show();
             $(".panel-name").show();
+            $('.ui-article-list>.content>h1.title').css("font-size", "1.8vmax");
         };
     };
 </script>
@@ -575,7 +642,7 @@
         dropdownOpen();
     });
     function dropdownOpen() {
-        var $dropdownli = $('li.dropdown');
+        var $dropdownli = $('.navbar-pc>li.dropdown');
         $dropdownli.mouseover(function () {
             $(this).addClass('open');
         }).mouseout(function () {
