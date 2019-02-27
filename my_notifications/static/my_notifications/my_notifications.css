@@ -1,0 +1,9 @@
+.read {
+    color: #bbbbbb;
+}
+.read a {
+    color: #bbbbbb!important;
+}
+ul.notification {
+    margin-top: 1em;
+}
