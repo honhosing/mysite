@@ -27,6 +27,9 @@ class Article(models.Model, ReadNumExpandMethod):
     def get_url(self):
         return reverse('article_detail', kwargs={'article_pk': self.pk})
 
+    def get_user(self):
+        return self.author
+
     def get_email(self):
         return self.author.email
 

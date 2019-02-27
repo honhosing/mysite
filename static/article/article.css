@@ -106,3 +106,6 @@ div.article-content p img {
 .pagination>li>a {
     color: #ff9200;
 }
+#footer {
+    position: relative;
+}

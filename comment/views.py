@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect
 from .models import Comment
 from django.urls import reverse
 from django.http import JsonResponse
 from django.contrib.contenttypes.models import ContentType
 from .forms import CommentForm
+from user.models import get_nickname_or_username
 
 # Create your views here.
 def update_comment(request):
@@ -23,9 +23,6 @@ def update_comment(request):
             comment.parent = parent
             comment.reply_to = parent.user
         comment.save()
-
-        # 发送邮件通知
-        comment.send_email()
 
         # 返回数据
         data['status'] = 'SUCCESS'

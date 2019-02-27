@@ -1,10 +1,11 @@
 import datetime
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.contenttypes.models import ContentType
 from django.utils import timezone
 from django.db.models import Sum
 from django.core.cache import cache
 from read_statistics.utils import get_seven_days_read_data, get_today_hot_data
+from notifications.models import Notification
 from article.models import Article
 
 from article.views import get_article_list_common_data

@@ -1,6 +1,8 @@
 import string
 import random
 import time
+from urllib.request import urlopen
+from urllib.parse import urlencode
 from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.contrib.auth.models import User
@@ -10,6 +12,23 @@ from django.core.mail import send_mail
 from .forms import LoginForm, RegForm, ChangeNicknameForm, BindEmailForm, ChangePasswordForm, ForgotPasswordForm
 from .models import Profile
 from django.http import JsonResponse
+
+def login_by_qq(request):
+    code = request.GET['code']
+    state = request.GET['state']
+    if state != settings.QQ_STATE:
+        raise Exception("state error")
+    # 获取Access_token
+    params = {
+        'grant_type': 'authorization_code',
+        'client_id': settings.QQ_APP_ID,
+        'client_secret': settings.QQ_APP_KEY,
+        'code': code,
+        'redirect_uri': settings.QQ_REDIRECT_URL,
+    }
+    response = urlopen('https://graph.qq.com/oauth2.0/token?' + urlencode(params))
+    response.read()
+
 
 def login(request):
     if request.method == 'POST':

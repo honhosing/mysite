@@ -81,3 +81,6 @@ h1.banner-header {
 a.article-detail {
     color: #a6a6a6!important;
 }
+#footer {
+    position: relative;
+}
