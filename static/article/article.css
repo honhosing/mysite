@@ -33,6 +33,18 @@ div.article-content {
     /*text-indent: 2em;*/
     margin-bottom: 2em;
 }
+div.article-content ul {
+    list-style: disc!important;
+    padding: 0 2em;
+    font-family: "Taviraj", serif;
+    font-weight: 700;
+}
+div.article-content ol {
+    padding: 0 2em;
+}
+div.article-content pre {
+    width: fit-content;
+}
 div.article-more {
     margin-top: 1em;
 }
