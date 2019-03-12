@@ -43,7 +43,7 @@ div.article-content ol {
     padding: 0 2em;
 }
 div.article-content pre {
-    width: fit-content;
+    width: auto;
 }
 div.article-more {
     margin-top: 1em;
