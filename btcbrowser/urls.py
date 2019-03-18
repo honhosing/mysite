@@ -7,7 +7,6 @@ urlpatterns = [
     path('get_blockchain_data', views.get_blockchain_data, name='get_blockchain_data'),
     path('test', views.test, name='test'),
     path('express', views.express, name="express"),
-    # path('express_img', express.express_img, name="express_img"),
     path(r'^image/$', express.express_img, name="express_img"),
-
+    path('halving', views.halving, name="halving"),
 ]

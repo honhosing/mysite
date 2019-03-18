@@ -1,0 +1,13 @@
+.btc-label {
+    margin: 1em 0;
+    font-size: large;
+    color: rgb(255,162,8);
+}
+.ltc-label {
+    margin: 1em 0;
+    font-size: large;
+    color: #345d9c;
+}
+.table>tbody>tr>td {
+    border: 1px solid #ddd!important;
+}

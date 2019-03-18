@@ -1,0 +1,261 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>减半追踪</title>
+    <link rel="stylesheet" href="{% static '/bootstrap-3.3.7/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/flipclock/css/flipclock.css' %}">
+    <link rel="stylesheet" href="{% static '/css/halving.css' %}">
+    <link rel="stylesheet" href="{% static '/css/test.css' %}">
+    <script type="text/javascript" src="{% static '/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/bootstrap-3.3.7/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/flipclock/js/flipclock.min.js' %}"></script>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid navbar-mobile">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <div class="logo-mobile">
+                    <a class="navbar-brand" href="/btcbrowser/halving"><img src="{% static '/images/logo-small.svg' %}"></a>
+                </div>
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               <ul class="nav navbar-nav f-left">
+                <li><a href="#">行情<span class="sr-only">(current)</span></a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">板块<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">数字货币</a></li>
+                    <li><a href="#">DApp</a></li>
+                    <li><a href="#">投资</a></li>
+                    <li><a href="#">政策</a></li>
+                    <li><a href="#">研究</a></li>
+                    <li><a href="#">企业</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">指南<span class="sr-only">(current)</span></a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">活动<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Distributed Health 2018</a></li>
+                    <li><a href="#">Distributed 2018</a></li>
+                      <li><a href="https://www.baidu.com">百度一下，你就知道</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">电台<span class="sr-only">(current)</span></a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">刊物</a></li>
+                    <li><a href="#">隐私条款</a></li>
+                  </ul>
+                </li>
+                   <li><a href="#">注册</a></li>
+              </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+
+        <div class="container-fluid navbar-pc">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/btcbrowser/test"><img src="{% static '/images/logo-small.svg' %}"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse f-right" id="bs-example-navbar-collapse-1">
+               <ul class="nav navbar-nav f-left">
+                <li><a href="#">行情<span class="sr-only">(current)</span></a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">板块<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">数字货币</a></li>
+                    <li><a href="#">DApp</a></li>
+                    <li><a href="#">投资</a></li>
+                    <li><a href="#">政策</a></li>
+                    <li><a href="#">研究</a></li>
+                    <li><a href="#">企业</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">指南<span class="sr-only">(current)</span></a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">活动<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Distributed Health 2018</a></li>
+                    <li><a href="#">Distributed 2018</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">电台<span class="sr-only">(current)</span></a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">刊物</a></li>
+                    <li><a href="#">隐私条款</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">注册</a></li>
+                <li class="navbar-search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></li>
+              </ul>
+            </div>
+              <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+
+    </nav>
+    <div class="main-body">
+        <div class="container ">
+            <div class="row">
+                <div class="col-md-offset-1 col-lg-offset-2 col-lg-8">
+                    <div style="margin-top: 30px;">
+                        <h2 style="margin-bottom: 20px;">减半追踪</h2>
+                        <div class="btc-halving">
+                            <label class="btc-label">比特币减半倒计时</label>
+                            <div class="btc-clock"></div>
+                            <label class="btc-label">比特币减半时间表</label>
+                            <table class="table table-bordered table-hover table-striped">
+                                <tr>
+                                    <th>#</th>
+                                    <th>日期</th>
+                                    <th>区块奖励</th>
+                                    <th>价格</th>
+                                </tr>
+                                <tr>
+                                    <td>第一次</td>
+                                    <td>2012-11-28 23:24:38 GM+8</td>
+                                    <td>50 -> 25</td>
+                                    <td>$ 13.44</td>
+                                </tr>
+                                <tr>
+                                    <td>第二次</td>
+                                    <td>2016-07-10 00:46:13 GM+8</td>
+                                    <td>25 -> 12.5</td>
+                                    <td>$ 574.65</td>
+                                </tr>
+                                <tr>
+                                    <td>第三次</td>
+                                    <td style="color: grey;">预计 2020-05-24 23:03:21 GM+8</td>
+                                    <td>12.5 -> 6.25</td>
+                                    <td>未知</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="ltc-halving">
+                            <label class="ltc-label">莱特币减半倒计时</label>
+                            <div class="ltc-clock"></div>
+                            <label class="ltc-label">莱特币减半时间表</label>
+                            <table class="table table-bordered table-hover table-striped">
+                                <tr>
+                                    <th>#</th>
+                                    <th>日期</th>
+                                    <th>区块奖励</th>
+                                    <th>价格</th>
+                                </tr>
+                                <tr>
+                                    <td>第一次</td>
+                                    <td>2015-08-26 06:58 GMT+8</td>
+                                    <td>50 -> 25</td>
+                                    <td>$ 2.66</td>
+                                </tr>
+                                <tr>
+                                    <td>第二次</td>
+                                    <td style="color: grey;">预计 2019-08-07 05:24 GMT+8</td>
+                                    <td>25 -> 12.5</td>
+                                    <td>未知</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    if ($(window).width() <= 768) {
+        {#$(".navbar-header").css("height", "");#}
+        $(".navbar-pc").hide();
+        $(".navbar-mobile").show();
+        $(".top-markets").hide();
+        $(".top-stories").hide();
+        $(".panel-name").hide();
+        $('.ui-article-list>.content>h1.title').css("font-size", "20px");
+        $('.ui-article-list>.content>h1.title').css("line-height", "20px");
+    }
+    else{
+        $(".navbar-pc").show();
+        $(".navbar-header").css("height", "65px");
+        $(".navbar-mobile").hide();
+        $(".top-markets").show();
+        $(".top-stories").show();
+        $(".panel-name").show();
+        $('.ui-article-list>.content>h1.title').css("font-size", "1.8vmax");
+        $('.ui-article-list>.content>h1.title').css("line-height", "2vmax");
+    };
+
+    window.onresize = function () {
+        var width =  $(window).width();
+        if (width <= 768) {
+            {#$(".navbar-header").css("height", "");#}
+            $(".navbar-pc").hide();
+            $(".navbar-mobile").show();
+            $(".top-markets").hide();
+            $(".top-stories").hide();
+            $(".panel-name").hide();
+            $('.ui-article-list>.content>h1.title').css("font-size", "20px");
+            $('.ui-article-list>.content>h1.title').css("line-height", "20px");
+        }
+        else{
+            $(".navbar-pc").show();
+            $(".navbar-header").css("height", "65px");
+            $(".navbar-mobile").hide();
+            $(".top-markets").show();
+            $(".top-stories").show();
+            $(".panel-name").show();
+            $('.ui-article-list>.content>h1.title').css("font-size", "1.8vmax");
+            $('.ui-article-list>.content>h1.title').css("line-height", "2vmax");
+        };
+    };
+</script>
+<script>
+    var clock_btc;
+    var clock_ltc;
+    $(document).ready(function() {
+        clock_btc = $('.btc-clock').FlipClock({{ btc_time_leave|safe }}, {
+            clockFace: 'DailyCounter',
+            language: 'chinese',
+            countdown: true
+        });
+        clock_ltc = $('.ltc-clock').FlipClock({{ ltc_time_leave|safe }}, {
+            clockFace: 'DailyCounter',
+            language: 'chinese',
+            countdown: true
+        });
+    });
+</script>
+</html>

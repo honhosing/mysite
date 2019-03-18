@@ -167,3 +167,12 @@ def test(request):
 
 def express(request):
     return render(request, 'express.html')
+
+def halving(request):
+    context = {}
+    timestamp_now = int(time.time())
+    btc_timestamp_tar = 1590332601
+    ltc_timestamp_tar = 1565126670
+    context['btc_time_leave'] = btc_timestamp_tar - timestamp_now
+    context['ltc_time_leave'] = ltc_timestamp_tar - timestamp_now
+    return render(request, 'halving.html', context)
