@@ -176,3 +176,9 @@ def halving(request):
     context['btc_time_leave'] = btc_timestamp_tar - timestamp_now
     context['ltc_time_leave'] = ltc_timestamp_tar - timestamp_now
     return render(request, 'halving.html', context)
+
+def bitcoin_orange(request):
+    return render(request, 'bitcoin-orange.html')
+
+def qgkd(request):
+    return render(request, '7gkd/index.html')

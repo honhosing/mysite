@@ -1,0 +1,73 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>Bitcoin Orange</title>
+    <link rel="stylesheet" href="{% static '/css/bitcoin-orange.css' %}">
+    <link rel="stylesheet" href="{% static '/bootstrap-3.3.7/css/bootstrap.min.css' %}">
+    <script type="text/javascript" src="{% static '/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/bootstrap-3.3.7/js/bootstrap.min.js' %}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<body>
+    <div class="page-head">
+        <p>Bitcoin Orange</p>
+    </div>
+    <div class="main-body">
+        <div class="bg">
+            <div class="upload">
+{#                <input type="file" name="image" accept=“image/*” onchange='handleInputChange'>#}
+                <span class="upload-text">点击上传图片</span>
+                <div class="uploadImg" id="uploadImg">
+                    <img class="upload-show" id="img1" src="images/banner.jpg"/>
+                </div>
+                <input type="file" name="upload-img" id="upload-img" style="display: none;" capture="camera" onchange="previewImg(this)" />
+            </div>
+            <div class="introduce">
+                <button class="btn btn-default" type="submit">点击生成</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
+        var version = parseFloat(RegExp.$1);
+        if(version>2.3){
+            var phoneScale = parseInt(window.screen.width)/640;
+            document.write('<meta name="viewport" content="width=640, minimum-scale = '+ phoneScale +', maximum-scale = '+ phoneScale +', target-densitydpi=device-dpi">');
+        }else{
+            document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+        }
+    }else{
+        document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+    }
+</script>
+<script>
+    $("#uploadImg").click(function(){
+        $("#upload-img").click();
+    })
+
+
+    function previewImg(file){
+        //判断是否支持FileReader
+        if (window.FileReader) {
+            var reader = new FileReader();
+        } else {
+            alert("您的设备不支持图片预览功能，如需该功能请升级您的设备！");
+        }
+        var preDiv = document.getElementById("upload-img");
+        //获取图片
+        if (file.files && file.files[0]){
+            $("#img1").show();
+            var reader = new FileReader();
+            reader.onload = function(e){
+                var img = document.getElementById("img1");
+                img.setAttribute("src",e.target.result);
+            }
+            reader.readAsDataURL(file.files[0]);
+        }
+    }
+</script>
+</html>

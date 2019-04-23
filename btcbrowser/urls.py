@@ -9,4 +9,6 @@ urlpatterns = [
     path('express', views.express, name="express"),
     path(r'^image/$', express.express_img, name="express_img"),
     path('halving', views.halving, name="halving"),
+    path('bitcoin_orange', views.bitcoin_orange, name="bitcoin_orange"),
+    path('7gkd', views.qgkd, name="7gkd"),
 ]

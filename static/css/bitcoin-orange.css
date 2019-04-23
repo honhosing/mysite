@@ -1,0 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-head {
+    text-align: center;
+    font-size: 50px;
+    font-family: "FZZongYi-M05S";
+    color: white;
+    background-color: #ff9200;
+}
+.upload {
+    border: 1px solid black;
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+    margin-top: 2em;
+    text-align: center;
+}
+.uploadImg {
+    position: relative;
+    top: -105px;
+    height: 195px;
+    width: 195px;
+}
+img.upload-show {
+    vertical-align: middle;
+    width: 195px;
+    height: 195px;
+    display: none;
+}
+span.upload-text {
+    display: block;
+    margin-top: 85px;
+}
+.introduce {
+    text-align: center;
+    padding-top: 30px;
+}
