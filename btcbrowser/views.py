@@ -182,3 +182,6 @@ def bitcoin_orange(request):
 
 def qgkd(request):
     return render(request, '7gkd/index.html')
+
+def invitation(request):
+    return render(request, 'invitation.html')

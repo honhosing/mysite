@@ -1,0 +1,141 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bitcoin 2019 邀请函</title>
+    <link rel="stylesheet" href="{% static '/bootstrap-3.3.7/css/bootstrap.min.css' %}">
+    <script type="text/javascript" src="{% static '/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/bootstrap-3.3.7/js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static '/css/test.css' %}">
+</head>
+<body style="background: url({% static 'invitation/bg.jpg' %}) no-repeat fixed top;">
+    <div class="main-body">
+        <div class="container container-fluid">
+            <div class="row">
+                <h2 style="margin-bottom: 50px;color: white;text-align: center;font-size: 40px;">Bitcoin 2019 邀请函</h2>
+                <div class="col-md-offset-1 col-lg-offset-3 col-lg-6" style="background-color: #f1f6f8;">
+                    <div style="background-color:white;margin: 0 -15px;">
+                        <div style="padding: 20px;">
+                            <img src="{% static 'invitation/logo.svg' %}" style="width: 40%;margin: 20px;">
+                        </div>
+                    </div>
+                    <div style="width: 100%;height: 50px;background-color: #ff9500;margin-top: 50px;border-radius: 5px 5px 0 0;padding: 5px 5px 5px 10px;">
+                        <h3 style="color: white;    margin: 10px;">生成您的邀请函</h3>
+                    </div>
+                    <div style="padding: 20px;background-color: white;border-radius: 0 0 5px 5px;">
+                        <div class="ui-article-list">
+                            <form id="invitation-form">
+                              <div class="form-group">
+                                <label for="InputName">姓名 Name</label>
+                                <input type="text" class="form-control" id="InputName" placeholder="姓名">
+                              </div>
+                              <div class="form-group">
+                                <label for="InputCompany">企业 Company</label>
+                                <input type="text" class="form-control" id="InputCompany" placeholder="企业名称">
+                              </div>
+                              <button id="generate" style="display:block;margin:0 auto;margin-top:60px;
+                              margin-bottom:20px;font-size: 20px;color: white;background-color: #ff9500;
+                              border-radius: 8px;padding: 10px;" type="submit" class="btn btn-default">生成 Generate</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div style="width: 100%; height: 70px;"></div>
+                </div>
+            </div>
+        </div>
+        <div id="image-place" style="display:none;margin: 0 auto;width: 100%;text-align: center;position: absolute;top: 0;background: rgba(0,0,0,0.4);">
+            <span id="close-image" style="position: fixed;top: 50%;right: 5%;font-size: 25px;color: white;border: 2px white solid;">关 闭</span>
+            <div style="margin: 0 auto;margin-top: 20%;width: 100%;">
+                <img id="output-img" src="" style="width: 50%;">
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    if ($(window).width() <= 768) {
+        {#$(".navbar-header").css("height", "");#}
+        $(".navbar-pc").hide();
+        $(".navbar-mobile").show();
+        $(".top-markets").hide();
+        $(".top-stories").hide();
+        $(".panel-name").hide();
+        $('.ui-article-list>.content>h1.title').css("font-size", "20px");
+        $('.ui-article-list>.content>h1.title').css("line-height", "20px");
+    }
+    else{
+        $(".navbar-pc").show();
+        $(".navbar-header").css("height", "65px");
+        $(".navbar-mobile").hide();
+        $(".top-markets").show();
+        $(".top-stories").show();
+        $(".panel-name").show();
+        $('.ui-article-list>.content>h1.title').css("font-size", "1.8vmax");
+        $('.ui-article-list>.content>h1.title').css("line-height", "2vmax");
+    };
+
+    window.onresize = function () {
+        var width =  $(window).width();
+        if (width <= 768) {
+            {#$(".navbar-header").css("height", "");#}
+            $(".navbar-pc").hide();
+            $(".navbar-mobile").show();
+            $(".top-markets").hide();
+            $(".top-stories").hide();
+            $(".panel-name").hide();
+            $('.ui-article-list>.content>h1.title').css("font-size", "20px");
+            $('.ui-article-list>.content>h1.title').css("line-height", "20px");
+        }
+        else{
+            $(".navbar-pc").show();
+            $(".navbar-header").css("height", "65px");
+            $(".navbar-mobile").hide();
+            $(".top-markets").show();
+            $(".top-stories").show();
+            $(".panel-name").show();
+            $('.ui-article-list>.content>h1.title').css("font-size", "1.8vmax");
+            $('.ui-article-list>.content>h1.title').css("line-height", "2vmax");
+        };
+    };
+</script>
+<script>
+    $("#invitation-form").submit(function () {
+        // 判断是否为空
+        if($("#InputName").val().trim()==''){
+            window.alert('姓名不能为空');
+            return false;
+        }
+        else if($("#InputCompany").val().trim()==''){
+            window.alert('企业不能为空');
+            return false;
+        }
+        var input_name = $("#InputName").val();
+        var input_company = $("#InputCompany").val();
+        // 异步提交
+        $.ajax({
+            url: "{% url 'invitation_img' %}",
+            type: 'POST',
+            data: {
+                'input_name': input_name,
+                'input_company': input_company,
+            },
+            cache: false,
+            success: function (data) {
+                console.log(data);
+                $("#image-place").show();
+                document.getElementById('output-img').src = "data:image/png;base64, " + data;
+            },
+            error: function (xhr) {
+                console.log(xhr);
+            }
+        });
+        return false;
+    });
+    $("#close-image").click(function () {
+        $("#image-place").hide();
+    })
+</script>
+</html>
