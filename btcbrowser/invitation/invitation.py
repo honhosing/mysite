@@ -61,7 +61,8 @@ def invitation_img(request):
     if request.is_ajax():
         f = BytesIO()  # 创建一个内存地址存放图片
         image = generate_img(data)
-        image.save(f, 'PNG')  # 保存图片
+        image.save(f, 'JPEG')  # 保存图片
         base64_data = b64encode(f.getvalue())
         s = base64_data.decode()
-        return HttpResponse(s)
+
+        return HttpResponse(s, content_type="image/jpeg")
