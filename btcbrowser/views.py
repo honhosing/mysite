@@ -185,3 +185,6 @@ def qgkd(request):
 
 def invitation(request):
     return render(request, 'invitation.html')
+
+def invitation2(request):
+    return render(request, 'invitation2.html')
